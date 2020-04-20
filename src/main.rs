@@ -8,13 +8,13 @@ fn main_page() -> &'static str {
   "Main page!"
 }
 
-#[get("/other")]
-fn other_page() -> &'static str {
-  "Other page!"
+#[get("/page/<id>")]
+fn page_by_id(id: i32) -> String {
+  format!("Page is {}", &id)
 }
 
 fn main() {
   rocket::ignite()
-    .mount("/", routes![main_page, other_page])
+    .mount("/", routes![main_page, page_by_id])
     .launch();
 }
