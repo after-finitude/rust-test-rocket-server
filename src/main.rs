@@ -4,8 +4,8 @@
 extern crate rocket;
 
 #[get("/")]
-fn main_page() -> &'static str {
-  "Main page!"
+fn main_page() -> String {
+  format!("Main page!")
 }
 
 #[get("/page/<id>")]
