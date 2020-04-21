@@ -4,6 +4,7 @@
 extern crate rocket;
 
 use rocket::http::Cookies;
+use rocket::Request;
 
 #[get("/")]
 fn main_page() -> String {
@@ -27,8 +28,14 @@ fn cookies(cookies: Cookies) -> Option<String> {
     .map(|value| format!("Message: {}", value))
 }
 
+#[catch(404)]
+fn not_found(req: &Request) -> String {
+  format!("Page '{}' not found", req.uri())
+}
+
 fn main() {
   rocket::ignite()
     .mount("/", routes![main_page, pages, page_by_id, cookies])
+    .register(catchers![not_found])
     .launch();
 }
