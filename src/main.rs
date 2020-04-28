@@ -7,14 +7,7 @@ mod routes;
 
 fn main() {
   rocket::ignite()
-    .mount(
-      "/api",
-      routes![
-        routes::pages::pages,
-        routes::pages::page_by_id,
-        routes::other::main_page,
-      ],
-    )
+    .mount("/api", routes![])
     .register(catchers![routes::catchers::not_found])
     .launch();
 }

@@ -1,3 +1,3 @@
 pub mod catchers;
-pub mod other;
-pub mod pages;
+pub mod catchers;
+pub mod users;
