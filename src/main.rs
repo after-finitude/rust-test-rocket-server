@@ -6,8 +6,8 @@ extern crate rocket;
 mod routes;
 
 fn main() {
-  rocket::ignite()
-    .mount("/api", routes![])
-    .register(catchers![routes::catchers::not_found])
-    .launch();
+    rocket::ignite()
+        .mount("/api", routes![])
+        .register(catchers![routes::catchers::not_found])
+        .launch();
 }
