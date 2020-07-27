@@ -17,7 +17,7 @@ diesel = { version = "1.4.5", features = ["postgres", "chrono"] }
 validator = "0.10.0"
 validator_derive = "0.10.0"
 slug = "0.1.4"
-rand = "0.7.2"
+rand = "0.7.3"
 dotenv = "0.15.0"
 jsonwebtoken = "6.0.1"
 
